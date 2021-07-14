@@ -1,0 +1,99 @@
+{% load static %}
+
+{% block content %}
+
+<div class='wrapper'>
+  <header>
+      <div class="hero">
+          <img src="{% static 'afg_pro/images/search1.jpg' %}" id="img">
+          <img src="{% static 'afg_pro/images/cart2.jpg' %}" id="img">
+          
+          
+          {% if user.is_authenticated %}
+          Hi, {{ user.username }}!<br>
+          <p><a href={% url 'afg_pro:logout' %}>Log Out</a></p> <br> <br>        
+          {% else %}
+          
+          <p>You are not logged in</p>
+          <a href="{% url 'afg_pro:login' %}">Log In</a>
+          {% endif %}
+          <br>
+          
+      </div>
+  </header>
+  
+  <div class="navbar">
+      <a href="/">Home</a>
+      {% if not request.user.is_staff %}
+      {% if user.is_authenticated %}
+      
+    
+      <a href="profile/1">My Profile</a>
+    
+
+    {% endif %}
+    <div class="dropdown">
+        <button class="dropbtn">Products
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+              <div class="header">
+                  <h3>List of our products</h3>
+              </div>   
+              <div class="row">
+                  <div class="column">
+                      <h3>Category 1</h3>
+                      <a href="#">Link 1</a>
+                      <a href="#">Link 2</a>
+                      <a href="#">Link 3</a>
+                  </div>
+                  <div class="column">
+                      <h3>Category 2</h3>
+                      <a href="#">Link 1</a>
+                      <a href="#">Link 2</a>
+                      <a href="#">Link 3</a>
+                  </div>
+                  <div class="column">
+                      <h3>Category 3</h3>
+                      <a href="#">Link 1</a>
+                      <a href="#">Link 2</a>
+                      <a href="#">Link 3</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <div class="dropdown">
+          <button class="dropbtn">Help
+              <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+              <div class="header">
+                  <h3>Find your help here</h3>
+              </div>   
+              <div class="row">
+                  <div class="column">
+                      
+                      <a href="#">Contact US</a>
+                      <a href="#">About US</a>
+            <a href="#">FAQ</a>
+          </div>
+          <div class="column">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Returns Policy</a>
+          </div>
+          <div class="column">
+              <a href="#">Term Of Sell</a>
+              <a href="#">Terms & Conditions</a>
+          </div>
+      </div>
+  </div>
+</div> 
+{% endif %}
+
+      {% if request.user.is_staff %}
+          <a href="/dashboard">Dashboard</a>
+          <a href="/products">Products</a>
+    {% endif %}
+  </div>
+  {% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'afg_pro/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'afg_pro/navbar.html' %}
+
+        {% block content %}
+        <div style="padding-left: 10em;">
+       
+        <!-- <h3><p id="demo"></p></h3> -->
+    </div>
+    <form method="POST">
+        <table class="Order_form">
+            <tr>
+            {% csrf_token %}     
+                <th>quantity</th>
+                <th>name</th>
+                <th>price</th>
+            </tr>
+            <tr>
+                <td><input type="number" name="quantity"></td>
+                <td> Name: {{product.name}}</td>
+                <td>Price: {{product.price}}</td>
+
+            </tr>
+
+        </table>
+                <input type="submit" name="Submit" style="background-color: #73AD21;border-radius: 15px; color: white; text-decoration: none;
+                font-size: 15px; padding: 8px; margin-left: 400px;">
+    </form>
+        {% endblock %}
+        <!-- <script>
+            var price = Number(document.getElementById("price").textContent)
+            var quantity = Number(document.getElementById("quantity").textContent)
+            z = parseFloat(price) + parseFloat(quantity)
+            document.getElementById("demo").innerHTML = z;
+            
+            </script> -->
+           
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,57 @@
+{% extends 'afg_pro/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row5">
+<h2>Add New Product: <a href="{% url 'afg_pro:add_new' %}">Add_new</a></h2>
+<p> </p>
+
+
+            <table class="t01">
+                <tr>
+                  <th>ID</th>
+                  <th>Product</th>
+                  <th class="td-1">Created date</th>
+                  <th>Category</th>
+                  <th>Quantity</th> 
+                  <th>Unit</th>
+                  <th>Price</th>
+                  <th>Delete</th>
+                  <th>Edit</th>
+
+      
+                </tr>
+                {% for product in products %}
+                <tr>
+                  <td>{{product.id}}</td>
+                  <td>{{product.name}}</td>
+                  <td class="td-1">{{product.created_date}}</td>
+                  <td>
+                    {% for category in product.category.all %}
+                    {{category}}
+                    {% endfor %}
+                </td>
+                  <td>{{product.quantity}}</td>
+                  <td>{{product.unit}}</td>
+                  
+                  <td>{{product.price}}</td>
+                  <form method="post">
+                    {% csrf_token %}
+                  <td> <button type="submit" formaction="{% url 'afg_pro:delete_product' product.id %}" style="background-color:
+                    red; border-radius: 15px 50px 30px; color: white; border: none; padding: 5px; float: right; margin-right: 7px;">Delete</button></td>
+                    
+                  <td><a href="{% url 'afg_pro:edit_product' product.id %}"  style="background-color: #408BCA; color: white;
+                    text-decoration: none; padding: 4px; padding-left: 8px; padding-right: 8px; float: left; margin-right: 7px;">Edit</a></td>
+                  
+                </form>
+                    {% endfor %}
+                  
+                </tr>
+                
+              </table>
+    
+</div>
+
+
+{% endblock %}

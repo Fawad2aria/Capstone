@@ -1,0 +1,103 @@
+{% extends 'afg_pro/main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="flex-container">
+    
+    <div class = 'flex1 box1' >
+        <h2>Delivered</h2>
+        <h2>{{delivered_orders}}</h2>
+    </div>
+
+    <div class = 'flex1 box2'>
+        <img src="{% static 'afg_pro/images/cart1.jpg' %}" class="dash_cart">
+            <h2>Pending orders</h2>
+            
+            <h2>{{pending_orders}}</h2>
+        
+    </div>
+
+    <div class = 'flex1 box3'>
+        <h2>Out for Delivery</h2>
+        <h2>{{Out_for_delivery_orders}}</h2>
+    </div>
+    
+    <div class = 'flex1 box4'>Revenue</div>
+    
+    <div class = 'flex1 box7'>
+        <table class="t01">
+            <h1>Totals of Orders & Customers</h1>
+         
+            <tr>
+                <th>Total Customers</th>
+                <td class="td1">{{customers_total}}</td>
+
+            </tr>
+
+            <tr>
+            <th>Total Orders</th>
+            <td class="td1">{{orders_total}}</td> 
+            </tr>
+
+        </table>
+        
+
+    </div>
+
+   
+    <div class = 'flex1 box8'>
+         <p>Earnings</p>
+
+      
+    </div>
+    
+    <div class = 'flex1 box5'>
+        <h1>All Customers</h1>
+        <table class="t01">
+            
+            <tr>
+                <th>Customers</th>
+                <th>Last-name</th>
+                <th>Email</th>
+                
+            </tr>
+            {% for customer in customers %}
+            
+            <tr>
+                <td><a href="/users/{{customer.id}}">{{customer.name}}</td></a>
+                <td>{{customer.last_name}}</td> 
+                <td>{{customer.email}}</td> 
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+    
+
+    <div class = 'flex1 box6'>
+        <h1>All Orders</h1>
+
+        <div class="flex-container">
+            {% for order in orders %}
+                <div class = 'flex1 box2' id="inside_box">
+                    <p>Name: {{order.customer}}</p>
+                    <p>Item: {{order.product}}</p>
+                    <p>Quantity: {{order.quantity}}</p>
+                    <p>Status: {{order.status}}</p>
+
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <button type="submit" formaction="{% url 'afg_pro:delete_page' order.id %}" style="background-color:
+                        red; color: white; border: none; padding: 5px; float: right; margin-right: 7px;">Delete</button>
+            
+                       <a href="{% url 'afg_pro:edit_page' order.id %}"  style="background-color: #408BCA; color: white;
+                        text-decoration: none; padding: 4px; padding-left: 8px; padding-right: 8px; float: left; margin-right: 7px;">Edit</a>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'afg_pro/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'afg_pro/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+	{% include 'afg_pro/navbar.html' %}
+  <h2>Profile</h2>
+	<div class="flex2-continer2">
+
+		<div class = 'flex_1 pic'>
+			<h1>pictures</h1>
+			<h2>setting</h2>
+			
+		</div>
+	
+		<div class = 'flex_1 orders'>
+			<a href="{% url 'afg_pro:create_order' customer.id %}">Create-New-Order</a>
+			<table class="t01">
+				<tr>
+					<th>Product</th>
+					<th>Quantity</th>
+					<th>Date Orderd</th>
+					<th>Status</th>
+				</tr>
+		
+				{% for order in orders %}
+				<tr>
+					<td>{{order.product}}</td>      
+					<td>{{order.quantity}}</td>
+					<td>{{order.created_date}}</td>
+					<td>{{order.status}}</td>
+					{% endfor %}
+					
+		
+				</tr>
+			</table>
+		</div>
+	  
+	</div>
+
+
+    
+</body>
+</html>

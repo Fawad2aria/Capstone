@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'afg_pro/log_sign.css' %}">
+    <title>Document</title>       
+</head>
+<body>
+  <div class="container">
+    <div class="logging">
+        <h2>Sign up</h2>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{form.first_name.label}}
+            {{form.first_name}}
+            <br>
+ 
+            {{form.last_name.label}}
+            {{form.last_name}}
+            <br>
+
+           {{form.username.label}}
+           {{form.username}}
+           <br>
+           
+           {{form.email.label}}
+           {{form.email}}
+           <br>
+           
+           
+           {{form.password1.label}}
+           {{form.password1}}
+            <br>
+            
+            {{form.password2.label}}
+            {{form.password2}}
+            <br>
+
+            <div>
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <input type="submit" name="Create User" class="submit">
+                </div>
+        </form>
+        <p class="message1">{{form.errors}}</p>
+            <!-- <p>Have already account
+            <a href="/login" class="login">Login</a>
+            </p>
+             -->
+             <p class="logsign">Have already account</p>
+             <a href="/login" class="logsign1">login</a>
+    </div>
+             
+             <div class="container2">
+               <img src="{% static 'afg_pro/images/loginPic.jpg' %}">
+               <div class="text-block">
+                 <p>Have already account</p>
+                 <a href="/login">login</a>
+                </div>
+              </div> 
+              
+            </div>
+      
+</body>
+</html>

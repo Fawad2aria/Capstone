@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'afg_pro/home.css' %}">
+    <title>Document</title>
+</head>
+<body>
+  {% include 'afg_pro/navbar.html' %}
+
+  {% block content %}
+          <div class="container">
+            <div class="outer">
+              <div class="inside">
+                <h1>Shop our products</h1>
+                <a href="/create_order/{{request.user.id}}}">Shop Now</a>
+              </div>
+            </div>
+          </div>
+
+        <div class="flexbox-continer">
+          <div class = 'flexbox-flex1 item1'>
+            <h1>We offer a healty lifestyle</h1>
+            <p>“Afg_Pro Products is a leading online herb dried fruit 
+              and other organic products store providing cure for
+              various ailments existing worldwide. We claim to be one
+              of the best online herbal stores where you can have various
+              facilities other than just buying the product. We are operating
+              successfully for about 20 years since the birth of this company.
+              Offering excellent customer care services our company stands
+              out in the midst of the crowd. We not just provide excellent
+              quality products but also offer kind and considerate services 
+              to our valuable clients.</p>
+            </div>
+            
+                      <div class = 'flexbox-flex1 item2'>
+                        <p>
+                       {{product.0}}<br>
+                       {{product.0.description}}<br>
+                      
+                       ${{product.0.price}}<br>
+                       <a href="/create_order/{{product.0.id}}" id="sent">Order Now</a>
+                      </p>
+                      </div><br>
+          <div class='h1'>
+            <h1>
+              Meet our week top sellers!
+            </h1>
+          </div>
+    
+          <div class = 'flexbox-flex1 item3'>
+            <p>
+              {{product.1}}<br>
+              {{product.1.description}}<br>
+              
+              ${{product.1.price}}<br>
+              <a href="/create_order/{{product.2.id}}" id="sent">Order Now</a>
+             </p>
+             
+            </div>
+            <div class = 'flexbox-flex1 item4'>
+              
+              <p>
+                {{product.2}}<br>
+                {{product.2.description}}<br>
+               
+                ${{product.2.price}}<br>
+                <a href="/create_order/{{product.3.id}}}" id="sent">Order Now</a>
+               </p>
+            </div>
+
+          <div class = 'flexbox-flex1 item5'>
+            <div class="img1">
+              <h6>
+                {{product.3}}<br>
+                {{product.3.description}}<br>
+               
+                ${{product.3.price}}<br>
+                <a href="/create_order/{{product.4.id}}}" id="sent" class="sent">Order Now</a>
+              </h6>
+              </div>
+              <p>This is our best product and organic 
+                You can't find anything like this
+              </p>
+          </div>
+          <div id="item7">
+            <div class="img1">
+              <h6>
+                <p>
+                {{product.1}}<br>
+                {{product.1.description}}<br>
+                5 {{product.1.unit}}<br>
+                ${{product.1.price}}<br>
+                <a href="/create_order/{{product.1.id}}" id="sent">Order Now</a>
+                </p>
+              </h6>
+              </div>
+              <p>Our Organic Apple are very good for you<br>
+                I don't say that!<br> Doctors say!
+              </p>
+          </div>
+          <div class='h1'>
+            <h1>
+              Our Organic Products are from the heart of the nature
+            </h1>
+          </div>
+          <div class = 'flexbox-flex1 item6'>
+          
+          </div>
+          <div class='h1'>
+            <h1>
+              More Products
+            </h1>
+          </div>
+          <div class = 'flexbox-flex1 item7'>
+            <p>
+              {{product.3}}<br>
+              {{product.3.description}}<br>
+              1 {{product.3.unit}}<br>
+              ${{product.3.price}}<br>
+              <a href="/create_order/{product.3.id}}" id="sent">Order Now</a>
+             </p>
+          </div>
+          <div class = 'flexbox-flex1 item8'>
+               
+            <p>
+              {{product.3}}<br>
+              {{product.3.description}}<br>
+              1 {{product.3.unit}}<br>
+              ${{product.3.price}}<br>
+              <a href="/create_order/{{product.3.id}}}" id="sent">Order Now</a>
+             </p>
+          </div>
+
+          <div class = 'flexbox-flex1 item9'>
+               
+            <p>
+              {{product.3}}<br>
+              {{product.3.description}}<br>
+              1 {{product.3.unit}}<br>
+              ${{product.3.price}}<br>
+              <a href="/create_order/{{product.3.id}}}" id="sent">Order Now</a>
+             </p>
+          </div>
+
+          <div class = 'flexbox-flex1 item10'>   
+            <p>
+              {{product.3}}<br>
+              {{product.3.description}}<br>
+              1 {{product.3.unit}}<br>
+              ${{product.3.price}}<br>
+              <a href="/create_order/{{product.3.id}}}" id="sent">Order Now</a>
+             </p></div>
+
+          <div class = 'flexbox-flex1 item11'>   
+            <p>
+              {{product.3}}<br>
+              {{product.3.description}}<br>
+              1 {{product.3.unit}}<br>
+              ${{product.3.price}}<br>
+              <a href="/create_order/{{product.3.id}}}" id="sent">Order Now</a>
+             </p></div>
+        </div>
+        <footer>
+          Copyright &copy; 2021 AFG_PRO<br>
+       <a href="fawad3moh@gmail.com">fawad3moh@gmail.com</a>
+      </footer>
+        </div>
+        {% endblock %}
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends 'afg_pro/main.html' %}
+
+{% block content %}
+<br>
+
+<div class="row2">
+	<h1 style="color: blue;">Customer:</h1>
+	<h2 style="padding-left: 5em; text-transform:capitalize;">Name: {{customer.name}} {{customer.last_name}}</h2>
+	<h2 style="padding-left: 5em; text-transform:capitalize;">Phone: {{customer.phone}}</h2>
+	<h2 style="padding-left: 5em; text-transform:capitalize;">Email: {{customer.email}}</h2>
+	<h2 style="padding-left: 5em; text-transform:capitalize;">Total Orders: {{orders_total }}</h2>
+	<hr>
+	</div>
+
+<div class="row3">
+	<table class="t01" id="t02">
+		<tr>
+			<th>Product</th>
+			<th>Category</th>
+			<th>Quantity</th>
+			<th class="dateNone">Date Orderd</th>
+			<th>Status</th>
+		</tr>
+
+		{% for order in orders %}
+		<tr>
+			<td>{{order.product}}</td>      
+			<td>
+                {% for category in order.product.category.all %}
+                {{category}}
+
+                {% endfor %}
+            </td>
+			<td>{{order.quantity}}</td>
+			<td class="dateNone">{{order.created_date}}</td>
+			<td>{{order.status}}</td>
+
+		</tr>
+		{% endfor %}
+	</table>
+	
+</div>
+
+
+{% endblock %}

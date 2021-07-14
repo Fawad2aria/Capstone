@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'afg_pro/log_sign.css' %}">
+    <title>Document</title>
+</head>
+<body>
+  <div class="container">     
+    <div class="logging">
+        <h2>Log In</h2>
+        <form method="post" action="">
+          {% csrf_token %}
+          <input type="text" name="username" placeholder="Username">
+          <input type="password" name="password" placeholder="password">
+          <input type="submit" value="login" class="submit">
+        </form>
+
+        {% for message in messages %}
+        <p class="message1">{{ message }}</p>
+        {% endfor %}
+        <p class="logsign">Don't have an account? <a href="/signup" class="logsign1">signup</a></p>
+
+        <p>Forgot password: <a href="/reset_password" style="float: right;">Reset-Password</a></p>
+        
+        
+    </div>
+    
+    
+    <div class="container2">
+      <img src="{% static 'afg_pro/images/background1.jpg' %}">
+      <div class="text-block">
+        <p>Don't have an account?</p>
+        <a href="/signup">signup</a>
+        
+      </div>
+
+      
+    </div>
+ 
+    </body>
+    </html>
